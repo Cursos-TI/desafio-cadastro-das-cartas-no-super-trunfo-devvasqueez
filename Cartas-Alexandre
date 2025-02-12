@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+int main(void) {
+    setlocale(LC_ALL, "Portuguese");
+
+    // Definição de variáveis
+    int codigocidade, pontosturisticos;
+    double PIB, populacao, area;
+    char nomecidade[50];
+
+    // Captura do nome da cidade usando fgets para permitir espaços
+    printf("Qual o nome da cidade: ");
+    fgets(nomecidade, sizeof(nomecidade), stdin);
+    // Remove o '\n' que pode ser inserido pelo fgets
+    size_t len = strlen(nomecidade);
+    if (len > 0 && nomecidade[len - 1] == '\n') {
+        nomecidade[len - 1] = '\0';
+    }
+
+    // Captura dos demais dados
+    printf("Qual o código da cidade: ");
+    scanf("%d", &codigocidade);
+
+    printf("Informe quantos pontos turísticos a cidade possui: ");
+    scanf("%d", &pontosturisticos);
+
+    printf("Informe o PIB da cidade: ");
+    scanf("%lf", &PIB);
+
+    printf("Informe a área da cidade (km²): ");
+    scanf("%lf", &area);
+
+    printf("Informe a população da cidade: ");
+    scanf("%lf", &populacao);
+
+    // Exibição dos dados capturados
+    printf("\n===== Dados da Cidade =====\n");
+    printf("Nome da Cidade: %s\n", nomecidade);
+    printf("Código da Cidade: %d\n", codigocidade);
+    printf("Pontos turísticos: %d\n", pontosturisticos);
+    printf("PIB: %.2lf\n", PIB);
+    printf("Área: %.2lf km²\n", area);
+    printf("População: %.0lf habitantes\n", populacao);
+
+    return 0;
+}
